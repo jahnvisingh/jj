@@ -1,44 +1,71 @@
 $(document).ready(function(){
- var selectletter=["A","A","B","B","C","C","D","D","E","E","F","F","G","G","H","H"];
- var counter=0;
- var all=new Array();
- var fun=function()
-   { 
-     $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(selectletter[Math.floor(Math.random()*16)]);
-     
-     all[counter]=$(this);
-     counter++;
-       if(counter==2)
-        { if(all[0].text()==all[1].text())
-    	   {  
-              
-              setTimeout(function(){
-    	   	  all[0].css({"font-size":"0px"});
-              
-              all[1].css({"font-size":"0px"});
 
-              alert("success!!");
-              },1000);
-              
+var letter=["A","A","B","B","C","C","D","D","E","E","F","F","G","G","H","H"];
 
-          }
-          else
-           { 
-           	 
-             setTimeout(function(){
-           	 all[0].css({"font-size":"0px","background-color":"#d3d3d3"});
-           	 
-             all[1].css({"font-size":"0px","background-color":"#d3d3d3"});
+Array.prototype.shuffle=function(){
+    var i=this.length,j,temp;
+    while(--i>0)
+    {
+      j=Math.floor(Math.random()*(i+1));
+      temp=this[j];
+      this[j]=this[i];
+      this[i]=temp;
+    }
+}
 
-             alert("failure!!");
-             },1000);
-            
+letter.shuffle();
+$("#0").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[0]); }); 
+$("#1").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[1]); }); 
+$("#2").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[2]); }); 
+$("#3").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[3]); }); 
+$("#4").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[4]); }); 
+$("#5").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[5]); }); 
+$("#6").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[6]); }); 
+$("#7").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[7]); }); 
+$("#8").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[8]); }); 
+$("#9").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[9]); }); 
+$("#10").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[10]); }); 
+$("#11").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[11]); }); 
+$("#12").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[12]); }); 
+$("#13").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[13]); }); 
+$("#14").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[14]); }); 
+$("#15").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[15]); }); 
 
-       	   }
-         }
-  }
 
-  $("td").on('click',fun);
-   
+
+
+
+
+
+
+
+
+
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
