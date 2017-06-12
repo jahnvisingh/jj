@@ -1,5 +1,7 @@
 $(document).ready(function(){
-
+var all=new Array();
+var counter=0;
+var count=0;
 var letter=["A","A","B","B","C","C","D","D","E","E","F","F","G","G","H","H"];
 
 Array.prototype.shuffle=function(){
@@ -14,25 +16,41 @@ Array.prototype.shuffle=function(){
 }
 
 letter.shuffle();
-$("#0").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[0]); }); 
-$("#1").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[1]); }); 
-$("#2").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[2]); }); 
-$("#3").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[3]); }); 
-$("#4").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[4]); }); 
-$("#5").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[5]); }); 
-$("#6").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[6]); }); 
-$("#7").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[7]); }); 
-$("#8").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[8]); }); 
-$("#9").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[9]); }); 
-$("#10").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[10]); }); 
-$("#11").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[11]); }); 
-$("#12").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[12]); }); 
-$("#13").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[13]); }); 
-$("#14").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[14]); }); 
-$("#15").click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).html(letter[15]); }); 
+
+letter.forEach(function(item,index){
+$("#"+index).click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).text(item);
+	                            all[counter]=$(this);
+	                            counter++; 
+
+	          if(counter==2)
+
+        {   
+
+             if(all[0].text()==all[1].text())
+    	   {  setTimeout(function(){
+    	   	  all[0].css({"font-size":"0px"});
+              all[1].css({"font-size":"0px"});
+              alert("success!!");
+              },1000);
+    	     count++;
+              
+
+          }
+          else
+           { setTimeout(function(){
+           	 all[0].css({"font-size":"0px","background-color":"#d3d3d3"});
+           	 all[1].css({"font-size":"0px","background-color":"#d3d3d3"});
+           	 alert("failure!!");
+             },1000);
+           }
+        }
+
+        }); 
+
+});
 
 
-
+ 
 
 
 
