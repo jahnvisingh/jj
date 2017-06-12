@@ -1,7 +1,5 @@
 $(document).ready(function(){
 var all=new Array();
-var counter=0;
-var count=0;
 var letter=["A","A","B","B","C","C","D","D","E","E","F","F","G","G","H","H"];
 
 Array.prototype.shuffle=function(){
@@ -18,24 +16,21 @@ Array.prototype.shuffle=function(){
 letter.shuffle();
 
 letter.forEach(function(item,index){
-$("#"+index).click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).text(item);
-	                            all[counter]=$(this);
+   
+   $("#"+index).click(function(){ $(this).css({"background-color":"white","text-align":"center","font-size":"50px"}).text(item);
+                                all[counter]=$(this);
 	                            counter++; 
 
 	          if(counter==2)
 
-        {   
-
-             if(all[0].text()==all[1].text())
+        {  
+          if(all[0].text()==all[1].text())
     	   {  setTimeout(function(){
     	   	  all[0].css({"font-size":"0px"});
               all[1].css({"font-size":"0px"});
               alert("success!!");
               },1000);
-    	     count++;
-              
-
-          }
+    	     count++;}
           else
            { setTimeout(function(){
            	 all[0].css({"font-size":"0px","background-color":"#d3d3d3"});
@@ -43,11 +38,12 @@ $("#"+index).click(function(){ $(this).css({"background-color":"white","text-ali
            	 alert("failure!!");
              },1000);
            }
+          counter=0;
         }
 
-        }); 
-
+	                            });
 });
+ 
 
 
  
