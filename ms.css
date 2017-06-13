@@ -1,0 +1,34 @@
+td{ height:70px;
+    width:70px;}
+table{ background-color:transparent;
+       height: 600px;
+       width:600px;
+      }
+.flip > .back{
+	position :absolute;
+	-webkit-transform: perspective(600px)rotateY(180deg);
+	background-color: white;
+	-webkit-backface-visibility: hidden;
+	transition:-webkit-transform 0.5s linear 0s;
+	width:125px; height:125px;
+	border:1px black solid;
+	text-align: center;
+	font-size: 100px;
+	;
+}
+
+.flip > .front{
+    position :absolute;
+	-webkit-transform: perspective(600px)rotateY(0deg);
+	background-color:#8A2BE2;
+	-webkit-backface-visibility: hidden;
+	transition:-webkit-transform 0.5s linear 0s;
+	width:125px; height:125px;
+	border:1px black solid;
+   }
+ .flip:hover > .front{
+ 	-webkit-transform:perspective(600px)rotateY(-180deg);}
+
+ .flip:hover > .back{
+ 	-webkit-transform:perspective(600px)rotateY(0deg);
+ }
