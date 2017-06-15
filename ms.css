@@ -26,9 +26,9 @@ table{ background-color:transparent;
 	width:125px; height:125px;
 	border:1px black solid;
    }
- .flip:hover > .front{
+ .flip.active> .front{
  	-webkit-transform:perspective(600px)rotateY(-180deg);}
 
- .flip:hover > .back{
+ .flip.active>.back{
  	-webkit-transform:perspective(600px)rotateY(0deg);
  }

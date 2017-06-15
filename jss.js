@@ -2,6 +2,7 @@ $(document).ready(function(){
 var counter=0;
 var turns=0;
 var count=0;
+var amountofclicks=0;
 var all=new Array();
 var letter=["A","A","B","B","C","C","D","D","E","E","F","F","G","G","H","H"];
 
@@ -22,10 +23,45 @@ letter.forEach(function(item,index){
 	$("#"+index).text(item);
  });
 
-$(document).on("click", ".flip", function () {
-    $(this).toggleClass('hover');
-});
 
+$('.flip').bind('click', function() {
+
+    if (amountofclicks < 2) {
+        amountofclicks++;
+        $(this).unbind('click');
+        
+          if (amountofclicks == 1) {
+          	$(this).addClass('active');
+            txt = $(this).find('.back').text();
+           }
+        }
+      
+        if (amountofclicks == 2) {
+           
+            $(this).addClass('active');
+            var txt2 = $(this).find('.back').text();
+            if(txt==txt2)
+            setTimeout(function(){
+        	{alert("success");
+             }},1000);
+            
+            else
+            setTimeout(function(){
+        	{alert("failure"+txt+txt2);}
+        	},1000);
+            amountofclicks=0;
+            
+
+        }
+
+ 
+        
+
+    
+  
+
+});
+   
 
 
 
