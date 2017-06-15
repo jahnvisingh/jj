@@ -24,47 +24,57 @@ letter.forEach(function(item,index){
  });
 
 
-$('.flip').bind('click', function() {
-
-    if (amountofclicks < 2) {
-        amountofclicks++;
-           if (amountofclicks == 1) 
-           {$(this).addClass('active');
-            txt = $(this).find('.back').text();
-            all[0]=$(this);
-           }
-        }
-      
-       if (amountofclicks == 2) {
-           
-            $(this).addClass('active');
-            var txt2 = $(this).find('.back').text();
-            all[1]=$(this);
-            if(txt==txt2)
-            setTimeout(function(){
-        	all[0].unbind('click');
-        	all[1].unbind('click'); 
-        	},1000);
-            else
-            setTimeout(function(){
-            all[0].removeClass('active');
-        	 all[1].removeClass('active');
-
-            },1000);
-
-            amountofclicks=0;
-            
-
+$('.flip').bind('click', function () {
+        if (amountofclicks < 2) {
+            amountofclicks++;
+            if (amountofclicks == 1) {
+                $(this).addClass('active');
+                txt = $(this).find('.back').text();
+                all[0] = $(this);
+            }
         }
 
- 
-        
+        if (amountofclicks == 2){
+            if ($(this).hasClass('active')) {
+                all.length = 0;
+                $(this).removeClass('active');
+            }
+            else {turns++;
+            	document.getElementById("turns").innerHTML="TURNS"+"="+turns; 
+                $(this).addClass('active');
+                var txt2 = $(this).find('.back').text();
+                all[1] = $(this);
+                if (txt == txt2){
+                    count++;
+                    document.getElementById("result").innerHTML="PAIRED CARDS FOUND"+"="+count;
+                	setTimeout(function () {
+                        all[0].unbind('click');
+                        all[1].unbind('click');
+                    }, 500);}
+                else
+                    setTimeout(function () {
+                        all[0].removeClass('active');
+                        all[1].removeClass('active');
+                       }, 500);}
+                 amountofclicks = 0;
+                 if(count==8){
+               document.getElementById("win").innerHTML="GAME FINISHED!!";}
+                }
+                 
 
-    
+
+
+
+
+    });
+
+
+$("button").click(function(){
+  location.reload();
+})
+
+
   
-
-});
-   
 
 
 

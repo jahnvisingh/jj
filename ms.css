@@ -1,17 +1,29 @@
 td{ height:70px;
     width:70px;}
+body{background-image: url("pic.jpg") ;
+     background-repeat:no-repeat;
+     background-size:100% 120%;
+     opacity:0.8;
+     margin:0px;
+     padding:0px;
+    }
+
+
+
 table{ background-color:transparent;
        height: 600px;
        width:600px;
-      }
+       top:10px;}
+
 .flip > .back{
 	position :absolute;
 	-webkit-transform: perspective(600px)rotateY(180deg);
-	background-color: white;
+	 background:linear-gradient(to right,red,white);
 	-webkit-backface-visibility: hidden;
 	transition:-webkit-transform 0.5s linear 0s;
 	width:125px; height:125px;
-	border:1px black solid;
+	border:3px black solid;
+	border-radius: 15px;
 	text-align: center;
 	font-size: 100px;
 	;
@@ -20,15 +32,80 @@ table{ background-color:transparent;
 .flip > .front{
     position :absolute;
 	-webkit-transform: perspective(600px)rotateY(0deg);
-	background-color:#8A2BE2;
+	background-color: #8A2BE2;
 	-webkit-backface-visibility: hidden;
 	transition:-webkit-transform 0.5s linear 0s;
 	width:125px; height:125px;
-	border:1px black solid;
+	border:3px black solid;
+	border-radius: 15px;
    }
+
  .flip.active> .front{
  	-webkit-transform:perspective(600px)rotateY(-180deg);}
 
  .flip.active>.back{
  	-webkit-transform:perspective(600px)rotateY(0deg);
  }
+ #game{position:absolute;
+      color:white;
+      left:530px;
+      top:2px;
+      font-size:30px;
+      font-style: italic;
+      -webkit-animation: tt 5s linear 2s infinite;
+      font-family:Comic Sans MS;font-weight: bold;
+      }
+#game:hover{
+	transform: scale(1.5);
+}
+#turns{ position:absolute;
+        top:200px;
+        left:40px;
+        font-size:30px;
+        color:white;
+        font-style: italic;
+        -webkit-animation: tt 5s linear 2s infinite;
+        font-family:Comic Sans MS;font-weight: bold;
+      }
+
+#result{position:absolute;
+        top:400px;
+        left:5px;
+        font-size:30px;
+        color:white;
+        font-style: italic;
+        -webkit-animation: tt 5s linear 2s infinite;
+        font-family:Comic Sans MS;font-weight: bold;
+      }
+#win{ position:absolute;
+      top:100px;
+      left:20px;
+      font-size:40px;
+      color:white;
+      font-style: italic;
+      font-family:Comic Sans MS;font-weight: bold;
+      }
+@-webkit-keyframes tt{
+	25%{color:white;}
+	to{color:black;}
+}
+button{position: absolute;
+	  top:30px;
+	  right:30px;
+	  padding:10px 10px;
+	  font-style:italic;
+	  font-weight:bold;
+	  font-size: 20px;
+	  border-radius: 5px;
+	    }
+button:hover{transform: scale(1.2);}
+
+ img{
+ 	position: absolute;
+ 	right:0;
+ 	bottom:0;
+ }
+
+img:hover{
+	transform: scale(1.05);
+}
