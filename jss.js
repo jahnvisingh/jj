@@ -28,27 +28,30 @@ $('.flip').bind('click', function() {
 
     if (amountofclicks < 2) {
         amountofclicks++;
-        $(this).unbind('click');
-        
-          if (amountofclicks == 1) {
-          	$(this).addClass('active');
+           if (amountofclicks == 1) 
+           {$(this).addClass('active');
             txt = $(this).find('.back').text();
+            all[0]=$(this);
            }
         }
       
-        if (amountofclicks == 2) {
+       if (amountofclicks == 2) {
            
             $(this).addClass('active');
             var txt2 = $(this).find('.back').text();
+            all[1]=$(this);
             if(txt==txt2)
             setTimeout(function(){
-        	{alert("success");
-             }},1000);
-            
+        	all[0].unbind('click');
+        	all[1].unbind('click'); 
+        	},1000);
             else
             setTimeout(function(){
-        	{alert("failure"+txt+txt2);}
-        	},1000);
+            all[0].removeClass('active');
+        	 all[1].removeClass('active');
+
+            },1000);
+
             amountofclicks=0;
             
 
